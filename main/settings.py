@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'coursera_clone',
+        'NAME': 'coursera_cldb',
         'USER': 'myuser',
         'PASSWORD': '6067670m',
         'HOST': 'localhost',
