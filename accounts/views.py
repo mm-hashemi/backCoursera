@@ -29,9 +29,22 @@ class LoginView(APIView):
 
         if check_password(password, user.password):
             refresh = RefreshToken.for_user(user)
+
+            
+            refresh['email'] = user.email  # Add email to payload
+            refresh['user_id'] = user.id  # Add user ID
+
+
+    
+  
+
             return Response({
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
+                 'user': {
+                    'id': user.id,
+                    'email': user.email,
+                 },
             })
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
