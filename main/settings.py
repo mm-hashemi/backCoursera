@@ -53,9 +53,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:3001",
 
-CORS_ALLOW_ALL_ORIGINS = True
-
+]
+CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'main.urls'
 
 TEMPLATES = [
@@ -82,7 +85,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'coursera_cldb',
+        'NAME': 'coursera_cldb2',
         'USER': 'myuser',
         'PASSWORD': '6067670m',
         'HOST': 'localhost',
@@ -133,5 +136,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
+AUTH_USER_MODEL = 'accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
