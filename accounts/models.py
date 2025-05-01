@@ -21,9 +21,10 @@ class User(AbstractUser):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Active')
     created_at = models.DateTimeField(auto_now_add=True)
     courses = models.ManyToManyField(Course, blank=True,related_name='profiles')
+    profile = models.ImageField(upload_to='profile/', blank=True, null=True)
 
     REQUIRED_FIELDS = ['email']
-    USERNAME_FIELD = 'username'  # or 'email' if you want login with email
+    # USERNAME_FIELD = 'username'  # or 'email' if you want login with email
 
     def __str__(self):
         return self.email

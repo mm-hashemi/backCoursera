@@ -81,7 +81,9 @@ class HeroBannerView(viewsets.ModelViewSet):
 
 # Companies Logo API
 class CompaniesLogoView(viewsets.ModelViewSet):
-    parser_classes = (MultiPartParser, FormParser)
+    queryset = Companies.objects.all()  # ✅ Fix
+    serializer_class = CompaniesSerializer
+    # parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request):
         logos = Companies.objects.all()  # Get all company logos
